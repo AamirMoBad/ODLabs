@@ -16,7 +16,7 @@ export default function MobileIntro(props) {
     
       
             <video
-              src={"/videos/mobile/mobile-intro.mp4"}
+              src={"/videos/mobile/mobile-intro.webm"}
               autoPlay
               autoBuffer
               loop

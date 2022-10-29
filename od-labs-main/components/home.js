@@ -19,7 +19,7 @@ function Home(props) {
   return (
     <Fragment>
           <video
-            src={"/videos/transition-a.mp4"}
+            src={"/videos/transition-a.webm"}
             autoPlay
             muted
             className="object-contain lg:object-cover h-screen w-screen absolute rotate-90 xl:rotate-0 z-0"

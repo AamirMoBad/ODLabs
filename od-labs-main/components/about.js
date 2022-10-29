@@ -11,7 +11,7 @@ function About(props) {
   return (
    <Fragment>
     <video
-        src={"/videos/about.mp4"}
+        src={"/videos/about.webm"}
         autoPlay
         muted
         loop

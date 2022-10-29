@@ -12,7 +12,7 @@ function Hologram(props) {
   return (
     <Fragment>
         <video
-            src={"/videos/monster-hologram.mp4"}
+            src={"/videos/monster-hologram.webm"}
             autoPlay
             muted
             loop

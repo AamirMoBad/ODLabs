@@ -2,7 +2,7 @@ import { Fragment, useRef, useState } from "react";
 
 export default function MobileHome(props) {
   console.log("rerender")
-    const [videoSrc, setVideoSrc] = useState("/videos/mobile/mobile-trans-1.mp4")
+    const [videoSrc, setVideoSrc] = useState("/videos/mobile/mobile-trans-1.webm")
     const vidRef = useRef()
     function handleClick(e) {
         e.preventDefault();
@@ -11,7 +11,7 @@ export default function MobileHome(props) {
       }
       function handleVideoEnded() {
         vidRef.current.loop = false;
-        setVideoSrc("/videos/mobile/mobile-index-page.mp4")
+        setVideoSrc("/videos/mobile/mobile-index-page.webm")
         vidRef.current.loop = true;
 
       }

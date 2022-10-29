@@ -42,7 +42,7 @@ export default function Intro(props) {
 
     <Fragment>
           <video
-            src={"/videos/home.mp4"}
+            src={"/videos/home.webm"}
             autoPlay
             loop
             muted

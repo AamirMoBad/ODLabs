@@ -30,6 +30,7 @@ export default function MobileAbout(props) {
                 muted
                 autoPlay
                 autoBuffer
+                loop
                 playsInline
                 preload
                 style={{ display: isIdle ? 'block' : 'none' }}

@@ -28,7 +28,6 @@ export default function MobileHome({ visibility, setAbout }) {
               src="/videos/mobile/mobile-trans-1.webm"
               ref={startVideoRef}
               muted
-              autoPlay
               playsInline
               className="object-contain"
               style={{ display: isIdle ? 'none' : 'block' }}
@@ -37,8 +36,8 @@ export default function MobileHome({ visibility, setAbout }) {
             <video
               src="/videos/mobile/mobile-index-page.webm"
               muted
-              autoPlay
               loop
+              autoPlay
               playsInline
               style={{ display: isIdle ? 'block' : 'none' }}
               className="object-contain"

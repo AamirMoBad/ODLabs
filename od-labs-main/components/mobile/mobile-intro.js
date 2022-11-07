@@ -1,25 +1,28 @@
 
-import { Fragment } from "react";
-export default function MobileIntro(props) {
+import { Fragment, useEffect, useRef } from "react";
+export default function MobileIntro({ visibility, setHome }) {
+  const videoRef = useRef()
     function handleClick(e) {
       e.preventDefault();
-      props.setHome()
+      setHome()
     }
   
-  
-  
+    useEffect(() => {
+      if (visibility) {
+        videoRef.current.play()
+      }
+    }, [visibility])
+
     return (
         <Fragment>
       <div className='parent relative h-screen w-screen'>
-    
-      
             <video
-              src={"/videos/mobile/mobile-intro.webm"}
-              autoPlay
+              ref={videoRef}
+              src="/videos/mobile/mobile-intro.webm"
               loop
               muted
               playsInline
-              className="object-contain"
+              className="object-contain intro"
             />
             </div>
             <div className="left-0 top-0 absolute">

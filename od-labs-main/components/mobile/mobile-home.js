@@ -38,7 +38,6 @@ export default function MobileHome({ visibility, setAbout }) {
               src="/videos/mobile/mobile-index-page.webm"
               muted
               autoPlay
-              preload=""
               loop
               playsInline
               style={{ display: isIdle ? 'block' : 'none' }}

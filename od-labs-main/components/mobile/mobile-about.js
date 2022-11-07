@@ -39,7 +39,6 @@ export default function MobileAbout({ visibility, setIntro }) {
                 autoPlay
                 loop
                 playsInline
-                preload=""
                 style={{ display: isIdle ? 'block' : 'none' }}
                 className="object-contain"
               />

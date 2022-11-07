@@ -3,6 +3,8 @@ import { useEffect, useRef, useState } from "react";
 export default function MobileAbout({ visibility, setIntro }) {
     const [isIdle, setIsIdle] = useState(false)
     const startVideoRef = useRef()
+    const loopVideoRef = useRef()
+  
     function handleClick(e) {
         e.preventDefault();
         setIntro()
@@ -12,12 +14,15 @@ export default function MobileAbout({ visibility, setIntro }) {
         if (visibility) {
           startVideoRef.current.play()
         } else {
+          startVideoRef.current.pause()
+          startVideoRef.current.currentTime = 0
           setIsIdle(false)
         }
       }, [visibility])
 
       function handleVideoEnded() {
         setIsIdle(true)
+        loopVideoRef.current.play()
       }
     
       return (
@@ -27,7 +32,6 @@ export default function MobileAbout({ visibility, setIntro }) {
               src="/videos/mobile/mobile-trans-2.webm"
               ref={startVideoRef}
               muted
-              autoPlay
               playsInline
               className="object-contain"
               style={{ display: isIdle ? 'none' : 'block' }}
@@ -35,8 +39,8 @@ export default function MobileAbout({ visibility, setIntro }) {
             />
             <video
                 src="/videos/mobile/mobile-about.webm"
+                ref={loopVideoRef}
                 muted
-                autoPlay
                 loop
                 playsInline
                 style={{ display: isIdle ? 'block' : 'none' }}

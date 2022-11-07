@@ -3,6 +3,8 @@ import { useEffect, useRef, useState } from "react";
 export default function MobileHome({ visibility, setAbout }) {
     const [isIdle, setIsIdle] = useState(false)
     const startVideoRef = useRef()
+    const loopVideoRef = useRef()
+
     function handleClick(e) {
         e.preventDefault();
         setAbout()
@@ -10,6 +12,7 @@ export default function MobileHome({ visibility, setAbout }) {
 
       function handleVideoEnded() {
         setIsIdle(true)
+        loopVideoRef.current.play()
       }
 
       useEffect(() => {
@@ -17,6 +20,8 @@ export default function MobileHome({ visibility, setAbout }) {
           setIsIdle(false)
           startVideoRef.current.play()
         } else {
+          startVideoRef.current.pause()
+          startVideoRef.current.currentTime = 0
           setIsIdle(false)
         }
       }, [visibility])
@@ -35,9 +40,9 @@ export default function MobileHome({ visibility, setAbout }) {
             />
             <video
               src="/videos/mobile/mobile-index-page.webm"
+              ref={loopVideoRef}
               muted
               loop
-              autoPlay
               playsInline
               style={{ display: isIdle ? 'block' : 'none' }}
               className="object-contain"

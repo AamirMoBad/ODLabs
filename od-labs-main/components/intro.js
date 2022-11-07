@@ -9,9 +9,7 @@ import Link from 'next/link';
 export default function Intro(props) {
   function handleClick(e) {
     e.preventDefault();
-    console.log("clicked")
     props.setHome()
-    console.log(props.visibility)
   }
 
 

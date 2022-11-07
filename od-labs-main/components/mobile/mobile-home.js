@@ -1,25 +1,34 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
-export default function MobileHome(props) {
+export default function MobileHome({ visibility, setAbout }) {
     const [isIdle, setIsIdle] = useState(false)
+    const startVideoRef = useRef()
     function handleClick(e) {
         e.preventDefault();
-        props.setAbout()
-        console.log(props.visibility)
+        setAbout()
       }
 
       function handleVideoEnded() {
         setIsIdle(true)
       }
+
+      useEffect(() => {
+        if (visibility) {
+          setIsIdle(false)
+          startVideoRef.current.play()
+        } else {
+          setIsIdle(false)
+        }
+      }, [visibility])
     
       return (
         <>
           <div className='parent relative h-screen w-screen'>
             <video
               src="/videos/mobile/mobile-trans-1.webm"
+              ref={startVideoRef}
               muted
               autoPlay
-              autoBuffer
               playsInline
               className="object-contain"
               style={{ display: isIdle ? 'none' : 'block' }}
@@ -29,9 +38,8 @@ export default function MobileHome(props) {
               src="/videos/mobile/mobile-index-page.webm"
               muted
               autoPlay
-              preload
+              preload=""
               loop
-              autoBuffer
               playsInline
               style={{ display: isIdle ? 'block' : 'none' }}
               className="object-contain"

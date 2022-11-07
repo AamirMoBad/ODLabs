@@ -1,13 +1,21 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
-export default function MobileAbout(props) {
-    console.log("rerender")
+export default function MobileAbout({ visibility, setIntro }) {
     const [isIdle, setIsIdle] = useState(false)
+    const startVideoRef = useRef()
     function handleClick(e) {
         e.preventDefault();
-        props.setIntro()
-        console.log(props.visibility)
+        setIntro()
       }
+
+      useEffect(() => {
+        if (visibility) {
+          startVideoRef.current.play()
+        } else {
+          setIsIdle(false)
+        }
+      }, [visibility])
+
       function handleVideoEnded() {
         setIsIdle(true)
       }
@@ -17,9 +25,9 @@ export default function MobileAbout(props) {
         <div className='parent relative h-screen w-screen'>
             <video
               src="/videos/mobile/mobile-trans-2.webm"
+              ref={startVideoRef}
               muted
               autoPlay
-              autoBuffer
               playsInline
               className="object-contain"
               style={{ display: isIdle ? 'none' : 'block' }}
@@ -29,10 +37,9 @@ export default function MobileAbout(props) {
                 src="/videos/mobile/mobile-about.webm"
                 muted
                 autoPlay
-                autoBuffer
                 loop
                 playsInline
-                preload
+                preload=""
                 style={{ display: isIdle ? 'block' : 'none' }}
                 className="object-contain"
               />

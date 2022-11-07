@@ -3,9 +3,7 @@ import { Fragment } from "react";
 export default function MobileIntro(props) {
     function handleClick(e) {
       e.preventDefault();
-      console.log("clicked")
       props.setHome()
-      console.log(props.visibility)
     }
   
   
@@ -18,11 +16,9 @@ export default function MobileIntro(props) {
             <video
               src={"/videos/mobile/mobile-intro.webm"}
               autoPlay
-              autoBuffer
               loop
               muted
               playsInline
-              
               className="object-contain"
             />
             </div>

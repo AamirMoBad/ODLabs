@@ -5,16 +5,12 @@ import Link from "next/link";
 function Home(props) {
   function hologramClick(e) {
     e.preventDefault();
-    console.log("clicked")
     props.setHologram()
-    console.log(props.visibility)
   }
 
   function aboutClick(e) {
     e.preventDefault();
-    console.log("clicked")
     props.setAbout()
-    console.log(props.visibility)
   }
   return (
     <Fragment>

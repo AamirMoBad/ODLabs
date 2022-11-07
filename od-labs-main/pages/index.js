@@ -22,7 +22,6 @@ const [visibility, setVisibility] = useState({
   hologram: false,
   about: false
 })
-console.log(visibility)
 
 function setHome() {
   setVisibility({
@@ -68,7 +67,6 @@ function setAbout() {
     about: true
   })
 }
-
 
   return (
     <div className='parent relative h-screen w-screen'>
@@ -130,17 +128,20 @@ function setAbout() {
   <div className={visibility.intro || 'hidden'}>
     <MobileIntro 
       setHome = {setHome}
+      visibility={visibility.intro}
     />
     </div>
     <div className={visibility.home || 'hidden'}>
     <MobileHome 
     setAbout = {setAbout} 
+    visibility={visibility.home}
     />
     </div>
 
     <div className={visibility.about || 'hidden'}>
     <MobileAbout 
     setIntro = {setIntro} 
+    visibility={visibility.about}
     />
     </div>
 

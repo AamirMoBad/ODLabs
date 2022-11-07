@@ -4,9 +4,7 @@ function Hologram(props) {
 
   function aboutClick(e) {
     e.preventDefault();
-    console.log("clicked")
     props.setAbout()
-    console.log(props.visibility)
   }
 
   return (

@@ -4,9 +4,7 @@ function About(props) {
 
   function homeClick(e) {
     e.preventDefault();
-    console.log("clicked")
     props.setHome()
-    console.log(props.visibility)
   }
   return (
    <Fragment>

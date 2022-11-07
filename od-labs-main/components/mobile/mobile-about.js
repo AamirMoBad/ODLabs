@@ -1,35 +1,39 @@
-import { Fragment, useRef, useState } from "react";
+import { useState } from "react";
 
 export default function MobileAbout(props) {
     console.log("rerender")
-    const [videoSrc, setVideoSrc] = useState("/videos/mobile/mobile-trans-2.webm")
-    const vidRef = useRef()
+    const [isIdle, setIsIdle] = useState(false)
     function handleClick(e) {
         e.preventDefault();
         props.setIntro()
         console.log(props.visibility)
       }
       function handleVideoEnded() {
-        vidRef.current.loop = false;
-        setVideoSrc("/videos/mobile/mobile-about.webm")
-        vidRef.current.loop = true;
-
+        setIsIdle(true)
       }
     
       return (
-          <Fragment>
+          <>
         <div className='parent relative h-screen w-screen'>
-      
-        
-              <video
-              ref= {vidRef}
-                src={videoSrc}
+            <video
+              src="/videos/mobile/mobile-trans-2.webm"
+              muted
+              autoPlay
+              autoBuffer
+              playsInline
+              className="object-contain"
+              style={{ display: isIdle ? 'none' : 'block' }}
+              onEnded={handleVideoEnded}
+            />
+            <video
+                src="/videos/mobile/mobile-about.webm"
                 muted
                 autoPlay
                 autoBuffer
                 playsInline
+                preload
+                style={{ display: isIdle ? 'block' : 'none' }}
                 className="object-contain"
-                onEnded={handleVideoEnded}
               />
               </div>
               <div className="left-0 top-0 absolute">
@@ -58,10 +62,6 @@ export default function MobileAbout(props) {
                 </a>
               </svg>
               </div>
-            
-         
-    
-        
-        </Fragment>
+        </>
       );
     }

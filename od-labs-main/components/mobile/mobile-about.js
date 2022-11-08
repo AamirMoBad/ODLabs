@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { videoAdapter } from "../../utils/video";
 
 export default function MobileAbout({ visibility, setIntro }) {
     const [isIdle, setIsIdle] = useState(false)
@@ -14,8 +15,7 @@ export default function MobileAbout({ visibility, setIntro }) {
         if (visibility) {
           startVideoRef.current.play()
         } else {
-          startVideoRef.current.pause()
-          startVideoRef.current.currentTime = 0
+          videoAdapter.stop(startVideoRef.current)
           setIsIdle(false)
         }
       }, [visibility])

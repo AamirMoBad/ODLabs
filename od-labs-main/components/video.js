@@ -9,13 +9,16 @@ const Video = React.forwardRef(({
 			ref={ref}
 			muted
 			autoPlay
-			preload="auto"
+			preload="none"
+			src={`${src}.mp4#t=0.001`}
 			playsInline
 			className="object-contain"
+			autobuffer
 			{...rest}
+			style={{ background: 'white', ...rest.style }} // setting backgound: white - bug on ios safari
 		>
+  			<source src={`${src}.mp4#t=0.001`} type="video/mp4" />
 			<source src={`${src}.webm`} type="video/webm" />
-  			<source src={`${src}.mp4`} type="video/mp4" />
 		</video>
 	))
 

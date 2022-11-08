@@ -41,7 +41,7 @@ export default function Intro(props) {
 
     <Fragment>
           <Video
-            src={"/videos/home.webm"}
+            src={"/videos/home"}
             loop
             className="object-contain lg:object-cover h-screen w-screen absolute rotate-90 xl:rotate-0"
           />

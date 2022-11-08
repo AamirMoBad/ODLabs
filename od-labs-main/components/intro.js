@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { Fragment } from 'react'
 import styles from '../styles/Home.module.css'
 import Link from 'next/link';
+import Video from './video';
 
 
 
@@ -39,11 +40,9 @@ export default function Intro(props) {
     </Head>
 
     <Fragment>
-          <video
+          <Video
             src={"/videos/home.webm"}
-            autoPlay
             loop
-            muted
             className="object-contain lg:object-cover h-screen w-screen absolute rotate-90 xl:rotate-0"
           />
 

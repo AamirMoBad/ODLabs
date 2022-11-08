@@ -1,5 +1,6 @@
 import { Fragment } from "react";
 import Link from "next/link";
+import Video from "./video";
 function Hologram(props) {
 
   function aboutClick(e) {
@@ -8,11 +9,9 @@ function Hologram(props) {
   }
 
   return (
-    <Fragment>
-        <video
-            src={"/videos/monster-hologram.webm"}
-            autoPlay
-            muted
+    <>
+        <Video
+            src={"/videos/monster-hologram"}
             loop
             className="object-contain lg:object-cover h-screen w-screen absolute rotate-90 xl:rotate-0 z-0"
           />
@@ -47,7 +46,7 @@ function Hologram(props) {
     <rect x="1680" y="160" fill="#fff" opacity="100" width="360" height="130"></rect>
   </a>
           </svg>
-          </Fragment>
+          </>
   )
 }
 

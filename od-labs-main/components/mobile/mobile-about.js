@@ -1,54 +1,21 @@
-import { useEffect, useRef, useState } from "react";
-import { videoAdapter } from "../../utils/video";
+import { useCallback } from "react";
+import TransitionedVideo from "../transitionedVideo";
 
 export default function MobileAbout({ visibility, setIntro }) {
-    const [isIdle, setIsIdle] = useState(false)
-    const startVideoRef = useRef()
-    const loopVideoRef = useRef()
-  
-    function handleClick(e) {
-        e.preventDefault();
-        setIntro()
-      }
-
-      useEffect(() => {
-        if (visibility) {
-          startVideoRef.current.play()
-        } else {
-          videoAdapter.stop(startVideoRef.current)
-          setIsIdle(false)
-        }
-      }, [visibility])
-
-      function handleVideoEnded() {
-        setIsIdle(true)
-        loopVideoRef.current.play()
-      }
+    const handleClick = useCallback((e) => {
+      e.preventDefault();
+      setIntro()
+    }, [setIntro])
     
-      return (
-          <>
-        <div className='parent relative h-screen w-screen'>
-            <video
-              src="/videos/mobile/mobile-trans-2.webm"
-              ref={startVideoRef}
-              muted
-              playsInline
-              className="object-contain"
-              style={{ display: isIdle ? 'none' : 'block' }}
-              onEnded={handleVideoEnded}
-            />
-            <video
-                src="/videos/mobile/mobile-about.webm"
-                ref={loopVideoRef}
-                muted
-                loop
-                playsInline
-                style={{ display: isIdle ? 'block' : 'none' }}
-                className="object-contain"
-              />
-              </div>
-              <div className="left-0 top-0 absolute">
-              <svg
+    return (
+      <>
+          <TransitionedVideo
+            srcTransition="/videos/mobile/mobile-trans-2"
+            src="/videos/mobile/mobile-about"
+            visible={visibility}
+          />
+            <div className="left-0 top-0 absolute">
+            <svg
                 version="1.1"
                 xmlns="http://www.w3.org/2000/svg"
                 xmlnsXlink="http://www.w3.org/1999/xlink"

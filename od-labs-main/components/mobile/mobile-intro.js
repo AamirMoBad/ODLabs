@@ -1,5 +1,6 @@
 
 import { useCallback, useEffect, useRef } from "react";
+import Video from "../video";
 
 export default function MobileIntro({ visibility, setHome }) {
   const videoRef = useRef()
@@ -18,12 +19,10 @@ export default function MobileIntro({ visibility, setHome }) {
   return (
       <>
         <div className='parent relative h-screen w-screen'>
-          <video
+          <Video
             ref={videoRef}
-            src="/videos/mobile/mobile-intro.webm"
+            src="/videos/mobile/mobile-intro"
             loop
-            muted
-            playsInline
             className="object-contain intro"
           />
         </div>

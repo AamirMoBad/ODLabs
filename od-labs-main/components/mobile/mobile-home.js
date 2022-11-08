@@ -1,51 +1,18 @@
-import { useEffect, useRef, useState } from "react";
-import { videoAdapter } from "../../utils/video";
+import TransitionedVideo from "../transitionedVideo";
 
 export default function MobileHome({ visibility, setAbout }) {
-    const [isIdle, setIsIdle] = useState(false)
-    const startVideoRef = useRef()
-    const loopVideoRef = useRef()
-
     function handleClick(e) {
         e.preventDefault();
         setAbout()
       }
 
-      function handleVideoEnded() {
-        setIsIdle(true)
-        loopVideoRef.current.play()
-      }
-
-      useEffect(() => {
-        if (visibility) {
-          setIsIdle(false)
-          startVideoRef.current.play()
-        } else {
-          videoAdapter.stop(startVideoRef.current)
-          setIsIdle(false)
-        }
-      }, [visibility])
-    
       return (
         <>
           <div className='parent relative h-screen w-screen'>
-            <video
-              src="/videos/mobile/mobile-trans-1.webm"
-              ref={startVideoRef}
-              muted
-              playsInline
-              className="object-contain"
-              style={{ display: isIdle ? 'none' : 'block' }}
-              onEnded={handleVideoEnded}
-            />
-            <video
-              src="/videos/mobile/mobile-index-page.webm"
-              ref={loopVideoRef}
-              muted
-              loop
-              playsInline
-              style={{ display: isIdle ? 'block' : 'none' }}
-              className="object-contain"
+            <TransitionedVideo
+              srcTransition="/videos/mobile/mobile-trans-1"
+              src="/videos/mobile/mobile-index-page"
+              visible={visibility}
             />
             </div>
             <div className="left-0 top-0 absolute">

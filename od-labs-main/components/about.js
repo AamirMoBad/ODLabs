@@ -1,5 +1,6 @@
 import { Fragment } from "react";
 import Link from "next/link";
+import Video from "./video";
 function About(props) {
 
   function homeClick(e) {
@@ -7,15 +8,12 @@ function About(props) {
     props.setHome()
   }
   return (
-   <Fragment>
-    <video
-        src={"/videos/about.webm"}
-        autoPlay
-        muted
+   <>
+    <Video
+        src={"/videos/about"}
         loop
         className="object-contain lg:object-cover h-screen w-screen absolute rotate-90 xl:rotate-0 z-0"
       />
-     
 
       <svg
         version="1.1"
@@ -34,7 +32,7 @@ function About(props) {
     <rect x="-250" y="735" fill="#fff" opacity="0" width="433" height="273"></rect>
   </a>
       </svg>
-</Fragment>
+</>
   )
 }
 

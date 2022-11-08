@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "deploy": "netlify deploy --build --prod"
   },
   "dependencies": {
     "next": "^12.2.2",
@@ -14,6 +15,7 @@
     "react-dom": "18.2.0"
   },
   "devDependencies": {
+    "@netlify/plugin-nextjs": "^4.28.6",
     "autoprefixer": "^10.4.7",
     "eslint": "8.19.0",
     "eslint-config-next": "12.2.2",

@@ -31,14 +31,14 @@ const TransitionedVideo = ({
 			<Video
 				src={srcTransition}
 				ref={transitionRef}
-				style={{ display: isTranstionProgress ? 'block' : 'none' }}
+				style={{ zIndex: isTranstionProgress ? (visible ? 50 : 0) : 0 }}
 				onEnded={handleTransitionEnd}
 			/>
 			<Video
 				src={src}
 				ref={videoRef}
 				loop
-				style={{ display: isTranstionProgress ? 'none' : 'block' }}
+				style={{ zIndex: isTranstionProgress ? 0 : (visible ? 50 : 0) }}
 			/>
 		</div>
 	)

@@ -15,7 +15,7 @@ const Video = React.forwardRef(({
 			className="object-contain"
 			autobuffer
 			{...rest}
-			style={{ background: 'white', ...rest.style }} // setting backgound: white - bug on ios safari
+			style={{ background: 'white', position: 'absolute', inset: 0, ...rest.style }} // setting backgound: white - bug on ios safari
 		>
   			<source src={`${src}.mp4#t=0.001`} type="video/mp4" />
 			<source src={`${src}.webm`} type="video/webm" />

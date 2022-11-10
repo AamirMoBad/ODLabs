@@ -85,15 +85,15 @@ export default function Index() {
         <meta property="og:url" content="https://www.od-labs.netlify.app" />
       </Head>
 
-      <div className='desktop-site'>
-        <div className={visibility.intro ? '' : 'hidden'}>
+      {/* <div className='desktop-site'>
+        <div className={visibility.intro ? 'absolute z-10' : 'absolute z-0'}>
           <Intro 
             setHome = {setHome}
             visibility = {visibility}
           />
         </div>
 
-        <div className={visibility.home ? '' : 'hidden'}>
+        <div className={visibility.home ? 'absolute z-10' : 'absolute z-0'}>
           <Home 
             setHologram = {setHologram}
             setAbout = {setAbout}
@@ -101,37 +101,37 @@ export default function Index() {
           />
         </div>
 
-        <div className={visibility.hologram ? '' : 'hidden'}>
+        <div className={visibility.hologram ? 'absolute z-10' : 'absolute z-0'}>
           <Hologram 
             setAbout = {setAbout}
             visibility = {visibility}
           />
         </div>
 
-        <div className={visibility.about ? '' : 'hidden'}>
+        <div className={visibility.about ? 'absolute z-10' : 'absolute z-0'}>
           <About 
             setHome = {setHome}
             visibility = {visibility}
           />
           </div>
-        </div>
+        </div> */}
       {/* Desktop site ended */}
 
       <div className='mobile-site md:hidden'>
-        <div className={visibility.intro ? '' : 'hidden'}>
+        <div className={visibility.intro ? 'absolute z-100' : 'absolute -z-10'}>
           <MobileIntro 
-            setHome = {setHome}
+            setHome={setHome}
             visibility={visibility.intro}
           />
         </div>
-        <div className={visibility.home ? '' : 'hidden'}>
+        <div className={visibility.home ? 'absolute z-100' : 'absolute -z-10'}>
           <MobileHome 
-          setAbout = {setAbout} 
+          setAbout={setAbout} 
           visibility={visibility.home}
           />
         </div>
 
-        <div className={visibility.about ? '' : 'hidden'}>
+        <div className={visibility.about ? 'absolute z-100' : 'absolute -z-10'}>
           <MobileAbout 
           setIntro = {setIntro} 
           visibility={visibility.about}

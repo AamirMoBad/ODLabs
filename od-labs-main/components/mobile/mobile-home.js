@@ -15,7 +15,7 @@ export default function MobileHome({ visibility, setAbout }) {
               visible={visibility}
             />
             </div>
-            <div className="left-0 top-0 absolute">
+            <div className="left-0 top-0 absolute z-100">
             <svg
               version="1.1"
               xmlns="http://www.w3.org/2000/svg"

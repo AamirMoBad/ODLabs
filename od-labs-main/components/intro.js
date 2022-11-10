@@ -1,8 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import { Fragment } from 'react'
-import styles from '../styles/Home.module.css'
-import Link from 'next/link';
 import Video from './video';
 
 
@@ -13,33 +11,9 @@ export default function Intro(props) {
     props.setHome()
   }
 
-
-
   return (
     <div className='parent relative h-screen w-screen'>
-      <Head>
-        <title>Create Next App</title>
-        <meta name="description" content="Home of OD Labs" />
-        <link rel="icon" href="/favicon.ico" />
-        <meta charSet="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-   
-    <meta property="og:title" content="OD Labs" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://www.od-labs.netlify.app" />
-    <meta property="og:image" content="/" />
-    <meta name="twitter:title" content="OD Labs" />
-    <meta name="twitter:description" content="Home of OD Lab" />
-    <meta name="twitter:image" content="/" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta property="og:title" content="Home of OD Labs" />
-    <meta property="og:type" content="website" />
-    <meta property="og:description" content="Home of OD Labs" />
-    <meta property="og:image" content="/" />
-    <meta property="og:url" content="https://www.od-labs.netlify.app" />
-    </Head>
-
-    <Fragment>
+      <Fragment>
           <Video
             src={"/videos/home"}
             loop

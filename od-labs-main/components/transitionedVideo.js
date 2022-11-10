@@ -27,7 +27,7 @@ const TransitionedVideo = ({
 	  }, [visible])
 
 	return (
-		<div className='parent relative h-screen w-screen'>
+		<div className='parent relative z-0 h-screen w-screen'>
 			<Video
 				src={srcTransition}
 				ref={transitionRef}

@@ -7,6 +7,7 @@ import About from '../components/about';
 import MobileIntro from '../components/mobile/mobile-intro.js'
 import MobileHome from '../components/mobile/mobile-home';
 import MobileAbout from '../components/mobile/mobile-about';
+import VisibilityContainer, { VISIBILITY_MECHANISMS } from '../components/visibilityContainer';
 
 export default function Index() {
   const [visibility, setVisibility] = useState({
@@ -85,58 +86,59 @@ export default function Index() {
         <meta property="og:url" content="https://www.od-labs.netlify.app" />
       </Head>
 
-      {/* <div className='desktop-site'>
-        <div className={visibility.intro ? 'absolute z-10' : 'absolute z-0'}>
+      <div className='desktop-site xs:hidden md:visible'>
+        <VisibilityContainer visible={visibility.intro}>
           <Intro 
-            setHome = {setHome}
-            visibility = {visibility}
+            setHome={setHome}
+            visibility={visibility}
           />
-        </div>
+        </VisibilityContainer>
 
-        <div className={visibility.home ? 'absolute z-10' : 'absolute z-0'}>
+        <VisibilityContainer visible={visibility.home}>
           <Home 
-            setHologram = {setHologram}
-            setAbout = {setAbout}
-            visibility = {visibility}
+            setHologram={setHologram}
+            setAbout={setAbout}
+            visibility={visibility}
           />
-        </div>
+        </VisibilityContainer>
 
-        <div className={visibility.hologram ? 'absolute z-10' : 'absolute z-0'}>
+        <VisibilityContainer visible={visibility.hologram}>
           <Hologram 
-            setAbout = {setAbout}
-            visibility = {visibility}
+            setAbout={setAbout}
+            visibility={visibility}
           />
-        </div>
+        </VisibilityContainer>
 
-        <div className={visibility.about ? 'absolute z-10' : 'absolute z-0'}>
+        <VisibilityContainer visible={visibility.about}>
           <About 
-            setHome = {setHome}
-            visibility = {visibility}
+            setHome={setHome}
+            visibility={visibility}
           />
-          </div>
-        </div> */}
+        </VisibilityContainer>
+      </div>
       {/* Desktop site ended */}
 
       <div className='mobile-site md:hidden'>
-        <div className={visibility.intro ? 'absolute z-100' : 'absolute -z-10'}>
+        <VisibilityContainer mechanism={VISIBILITY_MECHANISMS.ZINDEX} visible={visibility.intro}>
           <MobileIntro 
-            setHome={setHome}
-            visibility={visibility.intro}
-          />
-        </div>
-        <div className={visibility.home ? 'absolute z-100' : 'absolute -z-10'}>
-          <MobileHome 
-          setAbout={setAbout} 
-          visibility={visibility.home}
-          />
-        </div>
+              setHome={setHome}
+              visibility={visibility.intro}
+            />
+        </VisibilityContainer>
 
-        <div className={visibility.about ? 'absolute z-100' : 'absolute -z-10'}>
-          <MobileAbout 
-          setIntro = {setIntro} 
-          visibility={visibility.about}
+        <VisibilityContainer mechanism={VISIBILITY_MECHANISMS.ZINDEX} visible={visibility.home}>
+          <MobileHome 
+            setAbout={setAbout}
+            visibility={visibility.home}
           />
-        </div>
+        </VisibilityContainer>
+
+        <VisibilityContainer mechanism={VISIBILITY_MECHANISMS.ZINDEX} visible={visibility.about}>
+          <MobileAbout 
+            setIntro = {setIntro} 
+            visibility={visibility.about}
+          />
+        </VisibilityContainer>
       </div>
     </div>
   );

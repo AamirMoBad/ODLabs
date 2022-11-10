@@ -20,7 +20,6 @@ function Home(props) {
             className="object-contain lg:object-cover h-screen w-screen absolute rotate-90 xl:rotate-0 z-0"
           />
          
-         
           <svg
             version="1.1"
             xmlns="http://www.w3.org/2000/svg"
@@ -47,8 +46,8 @@ function Home(props) {
               </rect>
             </a>
             <a href='javascript:void(0)' onClick={aboutClick}>
-    <rect x="1680" y="160" fill="#fff" opacity="100" width="360" height="130"></rect>
-  </a>
+            <rect x="1680" y="160" fill="#fff" opacity="100" width="360" height="130"></rect>
+          </a>
           </svg>
         
       </>

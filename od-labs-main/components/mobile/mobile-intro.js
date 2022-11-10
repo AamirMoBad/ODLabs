@@ -26,7 +26,7 @@ export default function MobileIntro({ visibility, setHome }) {
             className="object-contain intro"
           />
         </div>
-        <div className="left-0 top-0 absolute">
+        <div className="left-0 top-0 absolute z-100">
           <svg
             version="1.1"
             xmlns="http://www.w3.org/2000/svg"
